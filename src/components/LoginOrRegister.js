@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { UseAuth } from "../custom-hooks";
 
@@ -11,8 +11,6 @@ export default function LoginOrRegister() {
     username: "",
     password: "",
   });
-
-  useEffect(() => {}, []);
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -76,8 +74,4 @@ export default function LoginOrRegister() {
       />
     </form>
   );
-  //   <form onSubmit={handleSubmit}>
-  //     <input type="submit" value="Login" />
-  //   </form>
-  // );
 }

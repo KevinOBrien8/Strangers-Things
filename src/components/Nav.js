@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 const loggedInLinks = [
   { id: 1, to: "/posts", name: "Posts" },
   { id: 2, to: "/posts/new", name: "+ New Post" },
+  { id: 3, to: "/me", name: "My Profile" },
 ];
 const loggedOutLinks = [
   { id: 1, to: "/posts", name: "Posts" },

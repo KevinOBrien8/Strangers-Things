@@ -27,10 +27,7 @@ export default function Me() {
     }
 
     fetchMe();
+    console.log(me);
   }, []);
-  return (
-    <div className="profile">
-      <h2>{me}</h2>
-    </div>
-  );
+  return <h1>{me}</h1>;
 }

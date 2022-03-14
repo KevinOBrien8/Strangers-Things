@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { UseAuth } from "./custom-hooks";
 
-import { Posts, Me, LoginOrRegister, Nav } from "./components";
+import { Posts, Me, LoginOrRegister, Nav, NewPost } from "./components";
 
 const App = () => {
   // two sets of routes here
@@ -49,6 +49,8 @@ const App = () => {
         {isLoggedIn && (
           <>
             <Route exact path="/posts" component={Posts} />
+            <Route path="/posts/new" component={NewPost} />
+            <Route exact path="/me" component={Me} />
           </>
         )}
 
@@ -59,8 +61,6 @@ const App = () => {
             <Route exact path="/register" component={LoginOrRegister} />
           </>
         )}
-
-        <Route exact path="/me" component={Me} />
 
         <Route exact path="/posts/:post_id" component={IndividualPost} />
       </Switch>
