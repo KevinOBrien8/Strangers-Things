@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useAuth } from "../custom-hooks";
+import { UseAuth } from "../custom-hooks";
 
 export default function Form() {
-  const { updateAuthStatus } = useAuth();
+  const { updateAuthStatus } = UseAuth();
 
   const [form, setForm] = useState({
     username: "jane",
