@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { UseAuth } from "./custom-hooks";
-import { Form } from "./components";
-import { Posts, Me } from "./components";
-import { Switch } from "react-router-dom";
+
+import { Posts, Me, LoginOrRegister, Nav } from "./components";
 
 const App = () => {
   // two sets of routes here
@@ -39,18 +38,32 @@ const App = () => {
   //   );
   // };
 
-  const Login = () => <div>I'll be the login page</div>;
+  // const Login = () => <div>I'll be the login page</div>;
+
+  const { token, isLoggedIn, logout } = UseAuth();
   const IndividualPost = () => <div>I'll be an individual post</div>;
   return (
     <Router>
-      <main>
-        <Switch>
-          <Route exact path="/posts" component={Posts} />
-          <Route exact path="/me" component={Me} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/posts/:post_id" component={IndividualPost} />
-        </Switch>
-      </main>
+      <Nav />
+      <Switch>
+        {isLoggedIn && (
+          <>
+            <Route exact path="/posts" component={Posts} />
+          </>
+        )}
+
+        {!isLoggedIn && (
+          <>
+            <Route exact path="/posts" component={Posts} />
+            <Route exact path="/login" component={LoginOrRegister} />
+            <Route exact path="/register" component={LoginOrRegister} />
+          </>
+        )}
+
+        <Route exact path="/me" component={Me} />
+
+        <Route exact path="/posts/:post_id" component={IndividualPost} />
+      </Switch>
     </Router>
   );
 };

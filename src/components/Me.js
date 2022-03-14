@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { UseAuth } from "../custom-hooks";
 
 export default function Me() {
   const [me, setMe] = useState("");
+  const { token } = UseAuth();
   useEffect(() => {
     async function fetchMe() {
       try {

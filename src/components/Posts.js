@@ -22,7 +22,7 @@ export default function Posts() {
 
   return (
     <div className="posts">
-      <div>Posts Will Go Here</div>;
+      <div>Cool Items For Sale</div>
       {posts &&
         posts.map((post) => {
           const { _id, author, title, description, price } = post;
