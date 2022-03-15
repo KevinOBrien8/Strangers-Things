@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { UseAuth } from "./custom-hooks";
 
-import { Posts, Me, LoginOrRegister, Nav, NewPost } from "./components";
+import {
+  Posts,
+  Me,
+  LoginOrRegister,
+  Nav,
+  NewPost,
+  Message,
+} from "./components";
 
 const App = () => {
   // two sets of routes here
@@ -51,6 +58,7 @@ const App = () => {
             <Route exact path="/posts" component={Posts} />
             <Route path="/posts/new" component={NewPost} />
             <Route exact path="/me" component={Me} />
+            <Route path="/posts/:postId/messages/new" component={Message} />
           </>
         )}
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { UseAuth } from "../custom-hooks";
 
 export default function Me() {
-  const [me, setMe] = useState("");
+  const [username, setUsername] = useState("");
   const [messages, setMessages] = useState([]);
   const [userPosts, setUserPosts] = useState([]);
   const { token } = UseAuth();
@@ -22,7 +22,7 @@ export default function Me() {
         const {
           data: { username, messages, posts },
         } = await response.json();
-        setMe(username);
+        setUsername(username);
         setMessages(messages);
         setUserPosts(posts);
       } catch (err) {
@@ -31,19 +31,19 @@ export default function Me() {
     }
 
     fetchMe();
-    console.log(me);
-  }, []);
+  }, [token]);
   return (
     <div>
-      <h1>{me}</h1>
+      <h1>{username}</h1>
       {messages &&
         messages.map((message) => {
           const { _id, content, post, fromUser } = message;
+
           return (
             <div key={_id}>
               <p>{content}</p>
-              <p>{post}</p>
-              <p>{fromUser}</p>
+              <p>{post.title}</p>
+              <p>{fromUser.username}</p>
             </div>
           );
         })}

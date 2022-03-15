@@ -4,7 +4,7 @@ import { UseAuth } from "../custom-hooks";
 
 export default function NewPost() {
   const { token } = UseAuth();
-  const { history } = useHistory();
+  const history = useHistory();
   const [form, setForm] = useState({
     title: "",
     description: "",
