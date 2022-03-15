@@ -20,11 +20,18 @@ export default function Nav() {
   return (
     <nav>
       {navLinks.map(({ id, to, name }) => (
-        <NavLink key={id} to={to}>
+        <NavLink key={id} to={to} className="navLink">
           {name}
         </NavLink>
       ))}
-      {isLoggedIn && <button onClick={logout}>Logout</button>}
+      {isLoggedIn && (
+        <div className="material-icons-outlined" onClick={logout}>
+          logout
+        </div>
+        // <button className="logout" onClick={logout}>
+        //   Logout
+        // </button>
+      )}
     </nav>
   );
 }

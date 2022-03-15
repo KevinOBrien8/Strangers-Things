@@ -34,23 +34,23 @@ export default function Posts() {
 
   return (
     <div className="posts">
-      <div>Cool Items For Sale</div>
+      <section>Cool Items For Sale</section>
       {posts &&
         posts.map((post) => {
           const { _id, author, title, description, price, isAuthor, messages } =
             post;
 
           return (
-            <section key={_id}>
+            <div className="individualPost" key={_id}>
               <h4>{title}</h4>
-              <div>{description}</div>
+              <p>{description}</p>
               <label>Price</label>
               <span>{price}</span>
-              <div>{author.username}</div>
+              <p>{author.username}</p>
               {isLoggedIn && !isAuthor && (
                 <Link to={`/posts/${post._id}/messages/new`}>Send Message</Link>
               )}
-            </section>
+            </div>
           );
         })}
     </div>

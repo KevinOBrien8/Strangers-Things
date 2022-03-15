@@ -37,30 +37,32 @@ export default function Me() {
   const inactivePosts = userPosts.filter((post) => !post.active);
 
   async function deletePost(postId) {
-    try {
-      const response = await fetch(
-        `https://strangers-things.herokuapp.com/api/2202-FTB-PT-WEB-FT/posts/${postId}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      const { success } = await response.json();
-
-      if (success) {
-        const filteredPosts = userPosts.map((post) => {
-          if (post._id === postId) {
-            post.active = false;
+    if (window.confirm("Are you sure you want to delete this post?")) {
+      try {
+        const response = await fetch(
+          `https://strangers-things.herokuapp.com/api/2202-FTB-PT-WEB-FT/posts/${postId}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
           }
-          return post;
-        });
-        setUserPosts(filteredPosts);
+        );
+        const { success } = await response.json();
+
+        if (success) {
+          const filteredPosts = userPosts.map((post) => {
+            if (post._id === postId) {
+              post.active = false;
+            }
+            return post;
+          });
+          setUserPosts(filteredPosts);
+        }
+      } catch (err) {
+        console.error(err);
       }
-    } catch (err) {
-      console.error(err);
     }
   }
   return (
