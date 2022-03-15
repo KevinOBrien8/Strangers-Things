@@ -10,6 +10,7 @@ export default function NewPost() {
     description: "",
     price: "",
   });
+  //   should I have a useState for Posts here as well and update that on submit?
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
