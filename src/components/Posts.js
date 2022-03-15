@@ -39,7 +39,7 @@ export default function Posts() {
         posts.map((post) => {
           const { _id, author, title, description, price, isAuthor, messages } =
             post;
-          console.log(messages);
+
           return (
             <section key={_id}>
               <h4>{title}</h4>
