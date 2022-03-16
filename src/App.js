@@ -12,7 +12,7 @@ import {
 } from "./components";
 
 const App = () => {
-  const { token, isLoggedIn, logout } = UseAuth();
+  const { isLoggedIn } = UseAuth();
 
   return (
     <Router>

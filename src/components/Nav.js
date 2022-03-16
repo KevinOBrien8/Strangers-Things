@@ -25,8 +25,9 @@ export default function Nav() {
         </NavLink>
       ))}
       {isLoggedIn && (
-        <div className="material-icons-outlined" onClick={logout}>
-          logout
+        <div className="logout" onClick={logout}>
+          <i className="material-icons-outlined">logout</i>
+          Logout
         </div>
         // <button className="logout" onClick={logout}>
         //   Logout

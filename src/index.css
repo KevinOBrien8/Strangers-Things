@@ -45,6 +45,20 @@ code {
   border-radius: 8px;
 }
 
+.individualPost > label {
+  margin-top: 6px;
+  font-weight: bold;
+}
+
+.messageLink {
+  background-color: #df61c3;
+  width: 125px;
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #2c2973;
+  font-weight: bold;
+}
 nav {
   margin-top: 0.5em;
   margin-right: 1.5em;
@@ -52,23 +66,38 @@ nav {
   flex-direction: row;
   justify-content: flex-end;
   position: sticky;
+  top: 0;
 }
 
 .navLink {
   color: #05c7f2;
   margin: 5px;
-
+  font-weight: bold;
   padding: 10px;
   background-color: black;
   border-radius: 3px;
 }
+.navLink:hover {
+  cursor: pointer;
+  background-color: #df61c3;
+  color: #2c2973;
+}
 
-/* .logout {
+.logout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: black;
   color: #05c7f2;
   border: none;
   padding: 5px;
   border-radius: 3px;
-  font-size: large;
+  font-weight: bold;
   padding-top: 5px;
-} */
+}
+.logout:hover {
+  cursor: pointer;
+  background-color: #df61c3;
+  color: #2c2973;
+}

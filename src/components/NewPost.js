@@ -9,15 +9,21 @@ export default function NewPost() {
     title: "",
     description: "",
     price: "",
+    location: "[On Request]",
+    willDeliver: false,
   });
   //   should I have a useState for Posts here as well and update that on submit?
   function handleChange(e) {
+    if (e.target.type === "checkbox") {
+      setForm({ ...form, [e.target.name]: e.target.checked });
+      return;
+    }
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
-
+    console.log(form);
     try {
       // fetch to get a respnse whether our POST action was successful
       const response = await fetch(
@@ -70,6 +76,24 @@ export default function NewPost() {
           type="text"
           name="price"
           value={form.price}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="location">
+        <label>Location:</label>
+        <input
+          type="text"
+          name="location"
+          value={form.location}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="willDeliver">
+        <label>Will you deliver?:</label>
+        <input
+          type="checkbox"
+          name="willDeliver"
+          checked={form.willDeliver}
           onChange={handleChange}
         />
       </div>
