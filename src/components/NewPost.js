@@ -55,6 +55,7 @@ export default function NewPost() {
       <div className="title">
         <label>Title:</label>
         <input
+          className="input"
           type="text"
           name="title"
           value={form.title}
@@ -64,6 +65,7 @@ export default function NewPost() {
       <div className="description">
         <label>Description:</label>
         <input
+          className="input"
           type="text"
           name="description"
           value={form.description}
@@ -73,6 +75,7 @@ export default function NewPost() {
       <div className="price">
         <label>Price:</label>
         <input
+          className="input"
           type="text"
           name="price"
           value={form.price}
@@ -82,6 +85,7 @@ export default function NewPost() {
       <div className="location">
         <label>Location:</label>
         <input
+          className="input"
           type="text"
           name="location"
           value={form.location}

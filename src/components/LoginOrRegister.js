@@ -39,6 +39,7 @@ export default function LoginOrRegister() {
         updateAuthStatus();
         history.push("/me");
       } else {
+        window.alert("Unrecognized Username or Password");
         throw new Error(
           `error ${
             loginOrRegister === "login" ? "logging in" : "registering"
@@ -58,6 +59,7 @@ export default function LoginOrRegister() {
       <div className="userName">
         <label>{loginOrRegister === "register" && "Choose "}Username:</label>
         <input
+          className="input"
           type="text"
           name="username"
           value={form.username}
@@ -67,6 +69,7 @@ export default function LoginOrRegister() {
       <div className="password">
         <label>{loginOrRegister === "register" && "Choose "}Password:</label>
         <input
+          className="input"
           type="password"
           name="password"
           value={form.password}

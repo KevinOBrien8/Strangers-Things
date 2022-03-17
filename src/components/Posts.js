@@ -34,26 +34,56 @@ export default function Posts() {
     fetchPosts();
   }, [token]);
 
-  function postMatches(post, text) {
-    console.log(text);
+  useEffect(() => {
+    setPosts(posts.filter((post) => containsSearchTerm(post, searchTerm)));
+  }, [searchTerm]);
+
+  // this validator returns true if searchTerm is found in field
+  function containsSearchTerm(post, searchTerm) {
+    for (let key in post) {
+      switch (key) {
+        case "willDeliver":
+        case "active":
+        case "_id":
+        case "author":
+        case "__v":
+        case "isAuthor":
+          continue;
+      }
+      // if (key === "willDeliver") {
+      //   continue;
+      // }
+
+      console.log(key);
+      // check all keys and ignore any that resolve to a non-string value
+
+      const currentField = post[key];
+
+      console.log(searchTerm);
+
+      if (currentField.indexOf(searchTerm) >= 0) {
+        return true;
+      }
+    }
+    return false;
   }
-  const filteredPosts = posts.filter((post) => postMatches(post, searchTerm));
-  const postsToDisplay = searchTerm.length ? filteredPosts : posts;
 
   return (
     <div className="posts">
       <h1>Stranger's Things</h1>
       <form>
-        <label>Search</label>
+        <label>Search:</label>
         <input
           type="text"
           className="searchBar"
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e)}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+          }}
         ></input>
       </form>
-      {postsToDisplay &&
-        postsToDisplay.map((post) => {
+      {posts &&
+        posts.map((post) => {
           const {
             _id,
             author,
