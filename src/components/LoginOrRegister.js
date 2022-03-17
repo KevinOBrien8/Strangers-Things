@@ -32,7 +32,7 @@ export default function LoginOrRegister() {
         }
       );
 
-      const { success, error, data } = await response.json();
+      const { success, data } = await response.json();
 
       if (success) {
         localStorage.st_token = data.token;

@@ -50,9 +50,6 @@ export default function Posts() {
         case "isAuthor":
           continue;
       }
-      // if (key === "willDeliver") {
-      //   continue;
-      // }
 
       console.log(key);
       // check all keys and ignore any that resolve to a non-string value
@@ -92,7 +89,6 @@ export default function Posts() {
             price,
             isAuthor,
             location,
-            messages,
             willDeliver,
           } = post;
 

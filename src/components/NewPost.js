@@ -38,7 +38,7 @@ export default function NewPost() {
         }
       );
       // resolve data
-      const { success, data, error } = await response.json();
+      const { success } = await response.json();
       // we leverage the history api to shunt our user elsewhere after successful POST Action
       if (success) {
         history.push("/posts");

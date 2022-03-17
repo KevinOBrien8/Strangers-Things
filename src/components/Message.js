@@ -30,7 +30,7 @@ export default function Message() {
           }),
         }
       );
-      const { success, error, data } = await response.json();
+      const { success } = await response.json();
       if (success) {
         history.push("/posts");
       }
