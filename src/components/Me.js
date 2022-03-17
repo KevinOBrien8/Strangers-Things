@@ -66,34 +66,37 @@ export default function Me() {
     }
   }
   return (
-    <section>
+    <section className="profile">
       <div>
-        <h1>{username}</h1>
-        <h1>Current Messages</h1>
+        <h1>Welcome {username}!</h1>
+        <h2>Current Messages</h2>
         {messages &&
           messages.map((message) => {
             const { _id, content, post, fromUser } = message;
 
             return (
-              <div key={_id}>
+              <div className="message" key={_id}>
                 <p>{content}</p>
                 <p>{post.title}</p>
                 <p>{fromUser.username}</p>
               </div>
             );
           })}
-        <h1>My Posts</h1>
+        <h2>My Posts</h2>
         <h3>Active Posts</h3>
         {activePosts &&
           activePosts.map((post) => {
             const { _id, title, description, price } = post;
             return (
-              <div key={_id}>
+              <div className="activePost" key={_id}>
                 <h4>{title}</h4>
                 <p>{description}</p>
                 <label>Price</label>
                 <span>{price}</span>
-                <button onClick={() => deletePost(post._id)}>
+                <button
+                  className="deleteBtn"
+                  onClick={() => deletePost(post._id)}
+                >
                   Delete Post
                 </button>
               </div>
@@ -105,7 +108,7 @@ export default function Me() {
           inactivePosts.map((post) => {
             const { _id, title, description, price } = post;
             return (
-              <div key={_id}>
+              <div className="inactivePost" key={_id}>
                 <h4>{title}</h4>
                 <p>{description}</p>
                 <label>Price</label>

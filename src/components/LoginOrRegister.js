@@ -51,7 +51,10 @@ export default function LoginOrRegister() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="loginForm" onSubmit={handleSubmit}>
+      <h1>
+        {loginOrRegister === "register" ? "Register New User" : "Welcome Back"}
+      </h1>
       <div className="userName">
         <label>{loginOrRegister === "register" && "Choose "}Username:</label>
         <input
@@ -71,6 +74,7 @@ export default function LoginOrRegister() {
         />
       </div>
       <input
+        className="loginBtn"
         type="submit"
         value={loginOrRegister === "register" ? "Sign Up" : "Login"}
       />

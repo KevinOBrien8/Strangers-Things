@@ -51,7 +51,7 @@ export default function NewPost() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="newPostForm" onSubmit={handleSubmit}>
       <div className="title">
         <label>Title:</label>
         <input
@@ -91,13 +91,14 @@ export default function NewPost() {
       <div className="willDeliver">
         <label>Will you deliver?:</label>
         <input
+          className="deliverCheckbox"
           type="checkbox"
           name="willDeliver"
           checked={form.willDeliver}
           onChange={handleChange}
         />
       </div>
-      <input type="submit" value="Submit New Post" />
+      <input className="submitBtn" type="submit" value="Submit New Post" />
     </form>
   );
 }

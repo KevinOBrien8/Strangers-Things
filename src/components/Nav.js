@@ -9,9 +9,9 @@ const loggedInLinks = [
 ];
 const loggedOutLinks = [
   { id: 1, to: "/posts", name: "Posts" },
-  { id: 2, to: "/home", name: "Home" },
-  { id: 3, to: "/login", name: "Login" },
-  { id: 4, to: "/register", name: "Register" },
+
+  { id: 2, to: "/login", name: "Login" },
+  { id: 3, to: "/register", name: "Register" },
 ];
 
 export default function Nav() {

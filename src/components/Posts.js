@@ -68,13 +68,13 @@ export default function Posts() {
 
           return (
             <div className="individualPost" key={_id}>
-              <h4>{title}</h4>
+              <h3>{title}</h3>
               <p>{description}</p>
-              <label>Price</label>
+              <label>Price:</label>
               <span>{price}</span>
-              <label>Location</label>
+              <label>Location:</label>
               <span>{location}</span>
-              {willDeliver && <p>Will Deliver</p>}
+              {willDeliver && <p>Will Deliver!</p>}
               <p>{author.username}</p>
 
               {isLoggedIn && !isAuthor && (
