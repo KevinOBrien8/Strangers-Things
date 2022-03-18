@@ -13,7 +13,7 @@ export default function Posts() {
     async function fetchPosts() {
       try {
         const response = await fetch(
-          `http://strangers-things.herokuapp.com/api/2202-FTB-PT-WEB-FT/posts`,
+          `https://strangers-things.herokuapp.com/api/2202-FTB-PT-WEB-FT/posts`,
           {
             method: "GET",
             headers: {
@@ -34,6 +34,7 @@ export default function Posts() {
     fetchPosts();
   }, [token]);
 
+  // eslint-disable-next-line
   useEffect(() => {
     setPosts(posts.filter((post) => containsSearchTerm(post, searchTerm)));
   }, [searchTerm]);

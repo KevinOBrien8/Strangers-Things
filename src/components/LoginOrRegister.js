@@ -22,7 +22,7 @@ export default function LoginOrRegister() {
 
     try {
       const response = await fetch(
-        `http://strangers-things.herokuapp.com/api/2202-FTB-PT-WEB-FT/users/${loginOrRegister}`,
+        `https://strangers-things.herokuapp.com/api/2202-FTB-PT-WEB-FT/users/${loginOrRegister}`,
         {
           method: "POST",
           headers: {
