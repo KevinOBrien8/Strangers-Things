@@ -51,12 +51,7 @@ export default function Posts() {
           continue;
       }
 
-      console.log(key);
-      // check all keys and ignore any that resolve to a non-string value
-
       const currentField = post[key];
-
-      console.log(searchTerm);
 
       if (currentField.indexOf(searchTerm) >= 0) {
         return true;

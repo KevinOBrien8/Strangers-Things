@@ -8,7 +8,7 @@ export default function Message() {
   const { postId } = useParams();
   const { token } = UseAuth();
   const [form, setForm] = useState({ content: "" });
-  console.log(postId);
+
   // function to POST new message
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -40,15 +40,21 @@ export default function Message() {
   }
 
   return (
-    <form className="newMessage">
-      <label>Send Message To Seller</label>
-      <input
-        type="text"
-        name="content"
-        value={form.content}
-        onChange={handleChange}
-      />
-      <button onClick={handleSubmit}>Send Message</button>
-    </form>
+    <div className="newMessage">
+      <form>
+        <label>Send Message To Seller</label>
+        <input
+          id="messageForm"
+          className="input"
+          type="text"
+          name="content"
+          value={form.content}
+          onChange={handleChange}
+        />
+        <button id="sendMessage" className="messageLink" onClick={handleSubmit}>
+          Send Message
+        </button>
+      </form>
+    </div>
   );
 }
