@@ -29,6 +29,7 @@ const App = () => {
 
         {!isLoggedIn && (
           <>
+            <Route exact path="/" component={Posts} />
             <Route exact path="/posts" component={Posts} />
             <Route exact path="/login" component={LoginOrRegister} />
             <Route exact path="/register" component={LoginOrRegister} />
